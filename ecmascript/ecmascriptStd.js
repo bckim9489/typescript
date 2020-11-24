@@ -20,7 +20,7 @@ x; // 1
 y; // 2
 z; // {a:3, b:4};
 const n = { x, y, ...z};
-n; // { x:1, y:2, a:3, b:4}
+n; // { x:1, y:2, {a:3, b:4}}
 //[ECMAScript2015] Trailing Comma - 객체리터럴
 var obj = {
     foo: "bar",
@@ -50,6 +50,9 @@ class C {
 const objWithFunction = {
     f: function () {
         console.log(1);
+    },
+    f: function() {
+
     }
 }
 //new (ES6~)
@@ -71,15 +74,3 @@ function userDefault(a=1,b=1,c=1){
     console.log([a,b,c]);
 }
 userDefault(0,0);
-
-function getName() {
-console.log(this.name);
-}
-const a = {
-name: 'javascript',
-getName: getName
-};
-function getNames() {
-a.getName(); // 'javascript'
-getName(); // TypeError: Cannot read property 'name' of undefined
-}
