@@ -3,7 +3,7 @@
     "exclude": ["node_modules"],
     "compilerOptions": {
         "module": "commonjs",
-        "target": "ES5",
+        "target": "ES2017",
         "sourceMap": true,
         "rootDir": "src",
         "outDir": "dist"

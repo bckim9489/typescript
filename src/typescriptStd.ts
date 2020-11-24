@@ -62,11 +62,11 @@ enum Week {
 //Enum Reverse Mapping(only key : number)
 console.log(Week[7]); // six
 console.log(Week[2]); // one
-
+//type
 type Result = {
     success: true,
     value: unknown
 } | {
     success: false,
     error: Error
-};
+}
