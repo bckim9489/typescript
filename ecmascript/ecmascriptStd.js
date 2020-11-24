@@ -39,7 +39,7 @@ class C {
 //Rest 에는 불가능
 //function f(...p,){}
 //구조 분해 할당에도 가능
-[a, b,]=[1,2];
+//[n, m,]=[1,2];
 /*JSON에서는 불가(ES5이전 문법을 기초)
  *WebView - 함수 안에서 Trailing Comma 불가
  *IE9 - 함수 안에서 Trailing Comma 불가
@@ -64,7 +64,7 @@ const objWithFunction2 = {
 
 //[ES6]계산된 속성이름
 const name = 'Bernard';
-const obj = {[name]: 'Werber'};
+const obj1 = {[name]: 'Werber'};
 console.log(obj); //{Bernard: 'Werber'}
 const obj3 = {['ab'+'c']:3};
 console.log(obj3) //{abc: 3}
@@ -74,3 +74,19 @@ function userDefault(a=1,b=1,c=1){
     console.log([a,b,c]);
 }
 userDefault(0,0);
+//[ES6]화살표 함수
+console.log("----------------");
+const obj2 = {
+    a: 1,
+    normalFunc: function() { console.log(this); },
+    arrowFunc: () => { console.log(this); },
+};
+const { normalFunc, arrowFunc } = obj2;
+obj2.normalFunc(); // { 
+                //   a: 1,
+                //   normalFunc: [Function: normalFunc],
+                //   arrowFunc: [Function: arrowFunc] 
+                // }
+normalFunc(); // undefined
+obj2.arrowFunc(); // (global object)
+arrowFunc(); // (global object)
