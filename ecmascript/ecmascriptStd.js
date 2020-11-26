@@ -82,11 +82,42 @@ const obj2 = {
     arrowFunc: () => { console.log(this); },
 };
 const { normalFunc, arrowFunc } = obj2;
-obj2.normalFunc(); // { 
-                //   a: 1,
-                //   normalFunc: [Function: normalFunc],
-                //   arrowFunc: [Function: arrowFunc] 
-                // }
-normalFunc(); // undefined
+obj2.normalFunc(); 
+/* 
+{ 
+   a: 1,
+   normalFunc: [Function: normalFunc],
+   arrowFunc: [Function: arrowFunc] 
+}
+*/
+normalFunc(); 
+// undefined
+
 obj2.arrowFunc(); // (global object)
 arrowFunc(); // (global object)
+
+//인자가 한개이면 괄호 생략가능
+const vx = args => {console.log(args)};
+console.log(vx);
+//한줄 표현식이면 대괄호 생략 가능
+const isOdd = n => (n%2===1);
+console.log(isOdd(3));
+
+//템플릿 리터럴
+const template = `템플릿 리터럴은 '작은따옴표(single quotes)'과 "큰따옴표(double quotes)"를 혼용할 수 있다.`;
+console.log(template);
+//멀티라인 문자열
+const template2 = `<ul class="nav-items">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>`;
+console.log(template2);
+//문자열 치환
+const first = 'Ung-mo';
+const last = 'Lee';
+console.log(`My name is ${first} ${last}.`);
+console.log(`1 + 1 = ${1 + 1}`);
+
+
