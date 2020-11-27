@@ -209,4 +209,13 @@ function getRandomPromise(){
 }
 // than() - 비동기 작업 완료 resolve()가 호출 된 경우
 // catch() - 비동기 작업 거부 reject()가 호출 된 경우
+ln();
+//[ES2017] Async / Await
+// Async(비동기)을 지원하는 환경에서 함수 선언시 일시적으로 Promise로 감싸짐
+async function returnTheAnswer(){
+    return 42;
+}
+const implicitlyReturnedPromise = returnTheAnswer();
+console.log(implicitlyReturnedPromise instanceof Promise);  //true
+implicitlyReturnedPromise.then(answer => console.log(answer));  //42
 
