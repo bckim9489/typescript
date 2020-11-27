@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function printLabel(labeledObj) {
     console.log(labeledObj.label);
 }
@@ -63,5 +64,14 @@ const abc = true;
 const score = 100;
 const ieee754Standard = 0.1 + 0.2; //0.300000000000004
 console.log(ieee754Standard);
-//char
+//ssoifjaosifhdaosf
+function testType() {
+    return {
+        function() {
+            console.log("ddd");
+        }
+    };
+}
+testType();
+testType();
 //# sourceMappingURL=typescriptStd.js.map

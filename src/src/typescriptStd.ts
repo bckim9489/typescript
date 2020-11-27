@@ -1,3 +1,5 @@
+import { timeStamp } from "console";
+
 function printLabel(labeledObj: { label: string }) {
     console.log(labeledObj.label);
 }
@@ -80,4 +82,13 @@ const abc: boolean = true;
 const score : number = 100;
 const ieee754Standard: number = 0.1+0.2; //0.300000000000004
 console.log(ieee754Standard);
-//char
+//ssoifjaosifhdaosf
+function testType(){
+    return {
+       function () {
+           console.log("ddd");
+       }
+    };
+}
+testType();
+testType();
