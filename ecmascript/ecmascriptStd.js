@@ -1,7 +1,7 @@
 /*
  * 
  */
-const ln = () =>{console.log("-------------------------")};
+const ln = args =>{if(!args){console.log(`-------------------------`)} else {console.log(`------------${args}-------------`)}};
 
 //[ECMAScript] 나머지 연산자 Rest Operator
 const [a, ...restArr] = [1,2,3,4,5,6,7];
@@ -232,3 +232,5 @@ async function asyncExample(){
     console.log(`a: ${a}, b: ${b}, c: ${c}`);
 }
 asyncExample();
+
+ln('끝');
