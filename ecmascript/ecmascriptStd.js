@@ -219,3 +219,16 @@ const implicitlyReturnedPromise = returnTheAnswer();
 console.log(implicitlyReturnedPromise instanceof Promise);  //true
 implicitlyReturnedPromise.then(answer => console.log(answer));  //42
 
+async function asyncExample(){
+    const a = setTimeout(()=>{42}, 3000);
+    //const a = await new Promise(resolve => {setTimeout(()=>resolve(42), 3000)});
+    const b = await 42;
+    let c;
+    try {
+        c = await new Promise((_,reject)=>{reject("Error on await")});
+    } catch(e){
+        console.log(e);
+    }
+    console.log(`a: ${a}, b: ${b}, c: ${c}`);
+}
+asyncExample();
