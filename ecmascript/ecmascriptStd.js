@@ -158,7 +158,7 @@ function makeIterator(array){
     var nextIndex = 0;
     return {
         next: () => {
-            nextIndex < array.length ? {value : array[nextIndex++], done : false}: {done : true};
+            return nextIndex < array.length ? {value : array[nextIndex++], done : false}: {done : true};
         }
     };
 }
@@ -167,4 +167,46 @@ console.log(iter.next());
 console.log(iter.next());
 console.log(iter.next());
 console.log(iter.next());
+ln();
+//iterable protocol
+/*
+ * 어떤 객체가 Symbol.iterator의 키의 값으로 메소드를 갖고, 
+ * 해당 메소드를 실행했을 때 이터레이터 인스턴스가 반환될 때
+ * 그 객체가 이터러블 프로토콜을 구현한다, 또는 순회 가능하다고 한다. 
+ */
+function makeIterator2(array){
+    var nextIndex = 0;
+    return {
+        next: () => {
+            return nextIndex < array.length 
+            ? {value: array[nextIndex++], done: false}
+            : {done: true};
+        }
+    };
+}
+const iterableObj = {
+    [Symbol.iterator](){
+        return makeIterator2([1,2,3]);
+    }
+};
+for(const elem of iterableObj){
+    console.log(elem);
+}
+console.log(...iterableObj);
+ln();
+//Promise - 비동기 처리
+function getRandomPromise(){
+    return new Promise((resolve, reject) => {
+        setTimeout(function(){
+            const destiny = Math.random();
+            if (destiny > 0.5){
+                resolve();
+            } else {
+                reject();
+            }
+        })
+    });
+}
+// than() - 비동기 작업 완료 resolve()가 호출 된 경우
+// catch() - 비동기 작업 거부 reject()가 호출 된 경우
 
