@@ -6,7 +6,7 @@ const ln = args => { if (!args) { console.log(`-------------------------`) } els
 //[ECMAScript] 나머지 연산자 Rest Operator
 const [a, ...restArr] = [1, 2, 3, 4, 5, 6, 7];
 ln();
-//[ECMAScript] 전개연산자
+//[ECMAScript] 전개연산자 Spread Syntax
 function logThing(a, b, c) {
     console.log(a);
     console.log(b);

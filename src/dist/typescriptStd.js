@@ -77,4 +77,32 @@ function testType() {
 }
 testType();
 ln();
+//함수 오버로딩
+function doubleString(str) {
+    return `${str}${str}`;
+}
+function doubleNumber(num) {
+    return (num * 2);
+}
+function doubleBooleanArray(arr) {
+    return arr.concat(arr);
+}
+function doubleFn(arg) {
+    if (typeof arg === 'string') {
+        return `${arg}${arg}`;
+    }
+    else if (typeof arg === 'number') {
+        return arg * 2;
+    }
+    else if (Array.isArray(arg)) {
+        return arg.concat(arg);
+    }
+}
+const num = doubleFn(3);
+const str = doubleFn('ab');
+const arr = doubleFn([true, false]);
+//ERROR: const err = doubleFn([1, 2, 3]);
+console.log(num);
+console.log(str);
+console.log(arr);
 //# sourceMappingURL=typescriptStd.js.map

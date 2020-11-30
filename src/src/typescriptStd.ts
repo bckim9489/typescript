@@ -1,4 +1,5 @@
 import { timeStamp } from "console";
+import { type } from "os";
 
 function printLabel(labeledObj: { label: string }) {
     console.log(labeledObj.label);
@@ -96,3 +97,35 @@ function testType(){
 }
 testType();
 ln();
+//함수 오버로딩
+function doubleString(str: string): string {
+    return `${str}${str}`;
+}
+function doubleNumber(num: number): number {
+    return (num*2);
+}
+function doubleBooleanArray(arr: boolean[]): boolean[] {
+    return arr.concat(arr);
+}
+//==============타입 시그니쳐 정의 시======================
+function doubleFn(str: string): string;
+function doubleFn(num: number): number;
+function doubleFn(arr: boolean[]): boolean[];
+
+function doubleFn(arg:any):any {
+    if(typeof arg === 'string'){
+        return `${arg}${arg}`;
+    } else if(typeof arg === 'number') {
+        return arg * 2;
+    } else if(Array.isArray(arg)){
+        return arg.concat(arg);
+    }
+}
+
+const num = doubleFn(3);
+const str = doubleFn('ab');
+const arr = doubleFn([true, false]);
+//ERROR: const err = doubleFn([1, 2, 3]);
+console.log(num);
+console.log(str);
+console.log(arr);
