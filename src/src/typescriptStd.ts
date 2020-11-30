@@ -1,5 +1,6 @@
 import { timeStamp } from "console";
 import { type } from "os";
+import { HeapInfo } from "v8";
 
 function printLabel(labeledObj: { label: string }) {
     console.log(labeledObj.label);
@@ -129,3 +130,30 @@ const arr = doubleFn([true, false]);
 console.log(num);
 console.log(str);
 console.log(arr);
+ln('This 타입');
+//This type - 시그니처에서 선언시 맨 앞에 해야 됨
+interface HTMLElement {
+    tagName: string;
+    tagCount: number;
+    /* ... */
+}
+interface noThis {
+    (this: void): void;
+}
+interface Handler {
+    (this: HTMLElement, event: any, callback: () => void): void;
+    //ERROR: (event: any, this: HTMLElement, callback: () => void): void;
+}
+let cb: any;
+const onClick: Handler = function(event, cb){
+    console.log(this.tagName);
+    cb();
+}
+/* this 접근 막음
+const noThis: noThis = function() {
+    console.log(this.a);
+}
+ */
+ln("Generic");
+//Generic
+

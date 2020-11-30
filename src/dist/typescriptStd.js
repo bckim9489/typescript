@@ -105,4 +105,17 @@ const arr = doubleFn([true, false]);
 console.log(num);
 console.log(str);
 console.log(arr);
+ln('This 타입');
+let cb;
+const onClick = function (event, cb) {
+    console.log(this.tagName);
+    cb();
+};
+/* this 접근 막음
+const noThis: noThis = function() {
+    console.log(this.a);
+}
+ */
+ln("Generic");
+//Generic
 //# sourceMappingURL=typescriptStd.js.map
