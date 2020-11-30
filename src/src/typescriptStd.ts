@@ -155,5 +155,46 @@ const noThis: noThis = function() {
 }
  */
 ln("Generic");
-//Generic
+/* 
+ *  Generic - 여러 타입에 대해 동작하는 함수를 정의하되, 
+ *  해당 함수를 정의할 때는 알 수 없고 사용할 때에만 
+ *  알 수 있는 타입 정보를 사용 하도록 함
+ */
+//타입변수 - PascalCase로 명명
+//제너릭 타입 별칭
+type MyArray<T> = T[];
+type MyNumberArray = MyArray<number>;
+const drinks: MyArray<string> = ['Coffee', 'Milk', 'Beer'];
+//제너릭 함수
+/* 
+function 함수명<타입 변수>(인자 타입): 반환타입{
+//  함수본문
+}
+function getFirstElem<T> (arr: T[]): T {
+//  함수본문
+}
+const languages: string[] = ['TypeScript', 'JavaScript'];
+const language = getFirstElem<string>(languages); //이때 language의 타입은 문자열
+*/
+//Result: 여러 타입에 대해 동작하는 요소를 정의하되, 
+//        해당 요소를 사용할 때가 되어야 알 수 있는 타입 정보를 정의에 사용하는 것
+ln("유니온타입");
+//Union Type
+function square(value: number, resultString: boolean = false): number | string{
+    const squared = value*value;
+    if(resultString) {
+        return squared.toString();
+    }
+    return squared;
+}
+//타입이 자주 쓰이는 경우(긴 문장의 경우, 정렬을 맞춤)
+type SquaredType = string 
+                 | number 
+                 | boolean;
+//맨 앞에 파이프 라인 넣어서 해도 됨
+type SquaredType2 = 
+                 | string 
+                 | number 
+                 | boolean;
+
 

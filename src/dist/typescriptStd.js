@@ -117,5 +117,27 @@ const noThis: noThis = function() {
 }
  */
 ln("Generic");
-//Generic
+const drinks = ['Coffee', 'Milk', 'Beer'];
+//제너릭 함수
+/*
+function 함수명<타입 변수>(인자 타입): 반환타입{
+//  함수본문
+}
+function getFirstElem<T> (arr: T[]): T {
+//  함수본문
+}
+const languages: string[] = ['TypeScript', 'JavaScript'];
+const language = getFirstElem<string>(languages); //이때 language의 타입은 문자열
+*/
+//Result: 여러 타입에 대해 동작하는 요소를 정의하되, 
+//        해당 요소를 사용할 때가 되어야 알 수 있는 타입 정보를 정의에 사용하는 것
+ln("유니온타입");
+//Union Type
+function square(value, resultString = false) {
+    const squared = value * value;
+    if (resultString) {
+        return squared.toString();
+    }
+    return squared;
+}
 //# sourceMappingURL=typescriptStd.js.map
