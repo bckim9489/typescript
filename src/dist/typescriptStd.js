@@ -3,6 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function printLabel(labeledObj) {
     console.log(labeledObj.label);
 }
+//const ln = (args: string):void => {console.log(`---------${args}-----------`)};
+function ln(args = "-") {
+    console.log(`----------${args}----------`);
+}
 let myObj = { size: 10, label: "Size 10 Object" };
 printLabel(myObj);
 //함수 선언 시
@@ -64,7 +68,6 @@ const abc = true;
 const score = 100;
 const ieee754Standard = 0.1 + 0.2; //0.300000000000004
 console.log(ieee754Standard);
-//ssoifjaosifhdaosf
 function testType() {
     return {
         function() {
@@ -73,5 +76,5 @@ function testType() {
     };
 }
 testType();
-testType();
+ln();
 //# sourceMappingURL=typescriptStd.js.map
