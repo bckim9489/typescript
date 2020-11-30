@@ -140,4 +140,18 @@ function square(value, resultString = false) {
     }
     return squared;
 }
+ln("인터섹션");
+/* OR
+type SportsMan =
+               & Human
+               & Soccer
+               & Basketball;
+*/
+const hancock = {
+    breath: false,
+    jumpPower: 100,
+    kickPower: 120
+};
+const doa = (name) => { console.log(name.breath ? "Live" : "Dead"); };
+doa(hancock);
 //# sourceMappingURL=typescriptStd.js.map

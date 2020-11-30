@@ -196,5 +196,28 @@ type SquaredType2 =
                  | string 
                  | number 
                  | boolean;
+ln("인터섹션");
+//인터섹션 타입 - 앰퍼샌드(&)
+type Human = { breath: boolean};
+type Soccer = { kickPower: number};
+type Basketball = { jumpPower: number};
 
+type SoccerPlayer = Human & Soccer;
+type BasketballPlayer = Human & Soccer;
+type SportsMan = Human 
+               & Soccer 
+               & Basketball;
+/* OR
+type SportsMan = 
+               & Human 
+               & Soccer 
+               & Basketball;
+*/
+const hancock: SportsMan = {
+    breath: false,
+    jumpPower: 100,
+    kickPower: 120
+};
+const doa = (name: SportsMan):void => {console.log(name.breath?"Live":"Dead");}
+doa(hancock);
 
