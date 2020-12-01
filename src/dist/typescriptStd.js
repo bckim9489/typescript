@@ -154,4 +154,19 @@ const hancock = {
 };
 const doa = (name) => { console.log(name.breath ? "Live" : "Dead"); };
 doa(hancock);
+ln('interface');
+const author = { name: '이름', height: 210 };
+const getUserName = function (u) {
+    return u.name;
+};
+function getCounter() {
+    let counter = function (start) { };
+    counter.interval = 123;
+    counter.reset = function () { };
+    return counter;
+}
+let c = getCounter();
+c(10);
+c.reset();
+c.interval = 5.0;
 //# sourceMappingURL=typescriptStd.js.map

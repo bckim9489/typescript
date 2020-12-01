@@ -220,4 +220,38 @@ const hancock: SportsMan = {
 };
 const doa = (name: SportsMan):void => {console.log(name.breath?"Live":"Dead");}
 doa(hancock);
+ln('interface');
+//Interface
+interface User {
+    name: string,
+    readonly height: number;
+    age?: number;
+}
+const author: User = { name: '이름', height:210}
+//할당 불가
+//author.height=183;
+
+//함수 인터페이스
+interface GetUserName {
+    (user: User):string;
+}
+const getUserName: GetUserName = function(u){
+    return u.name;
+};
+//하이브리드 타입 - 호출시그니쳐와 타입정의를 동시에
+interface Counter {
+    (start: number): string;
+    interval: number;
+    reset(): void;
+}
+function getCounter(): Counter {
+    let counter = <Counter>function (start: number) { };
+    counter.interval = 123;
+    counter.reset = function() {};
+    return counter;
+}
+let c = getCounter();
+c(10);
+c.reset();
+c.interval=5.0;
 
