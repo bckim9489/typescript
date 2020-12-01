@@ -169,4 +169,23 @@ let c = getCounter();
 c(10);
 c.reset();
 c.interval = 5.0;
+//const user: MyResponse<User> = await getUserApiCall(useerId);
+ln("동적속성타입- 색인 가능 타입");
+const users = [
+    { name: 'abc', height: 176, age: 28 },
+    { name: 'ddbc', height: 11 }
+];
+;
+const nameHeightMap = {};
+users.map(user => {
+    //색인 가능 타입 필요
+    //nameHeightMap[user.name] = user.height;
+});
+const h = nameHeightMap['dodo']; //이 시점에서 h의 타입은 number | undefined
+if (h !== undefined) {
+    //이 시점에서 h의 타입은 number
+    console.log(h.toString());
+}
+ln("인터페이스 확장");
+//인터페이스 확장
 //# sourceMappingURL=typescriptStd.js.map
